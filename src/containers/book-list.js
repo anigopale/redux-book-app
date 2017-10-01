@@ -5,9 +5,14 @@ import { bindActionCreators } from 'redux';
 
 class BookList extends Component {
   renderList(){
-    return this.props.books.map((books) => {
+    return this.props.books.map((book) => {
       return (
-        <li key={books.title} className="list-group-item">{books.title}</li>
+        <li
+          key={book.title}
+          onClick={() => this.props.selectBook(book)}
+          className="list-group-item">
+            {book.title}
+        </li>
       );
     });
   }//for every props.books, arrow function runs taking books as an argument, returns a jsx list element for every books.title
